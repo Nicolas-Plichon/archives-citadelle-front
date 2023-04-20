@@ -1,0 +1,28 @@
+header {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-citadelle img {
+  height: 150px;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 80%;
+}
+
+.nav-menu a {
+  color: #252835;
+  text-decoration: none;
+  height: 1em;
+  font-size: 1.5rem;
+}
+
+.nav-menu :hover {
+  font-weight: bold;
+}
