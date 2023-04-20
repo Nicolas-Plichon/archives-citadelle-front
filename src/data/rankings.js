@@ -1,7 +1,7 @@
 export default [
   {
     id: 1,
-    ranking: '213.05',
+    ranking: '223.05',
     ranking_player: {
       id: 42,
       name: 'Nuubman',
