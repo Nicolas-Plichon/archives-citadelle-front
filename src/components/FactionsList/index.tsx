@@ -1,22 +1,30 @@
-import {
-  BaratheonLogo, FreeFolksLogo, GreyjoyLogo, LannisterLogo, MartellLogo, NeutralLogo,
-  NightsWatchLogo, StarkLogo, TargaryenLogo,
-} from '../../assets/images/logo_faction';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { factionRankings } from '../../store/reducers/rankings';
 import './styles.scss';
 
 function FactionsList() {
+  const dispatch = useAppDispatch();
+
+  const factionsList = useAppSelector((state) => state.factions.list);
+
+  const handleFactionFilter = (faction: string) => {
+    dispatch(factionRankings(faction));
+  };
+
   return (
 
     <div className="factions-list">
-      <img src={BaratheonLogo} alt="Logo Baratheon" className="faction-logo" />
-      <img src={FreeFolksLogo} alt="Logo Peuple Libre" className="faction-logo" />
-      <img src={GreyjoyLogo} alt="Logo Greyjoy" className="faction-logo" />
-      <img src={LannisterLogo} alt="Logo Lannister" className="faction-logo" />
-      <img src={MartellLogo} alt="Logo Martell" className="faction-logo" />
-      <img src={NeutralLogo} alt="Logo Neutre" className="faction-logo" />
-      <img src={NightsWatchLogo} alt="Logo Garde de Nuit" className="faction-logo" />
-      <img src={StarkLogo} alt="Logo Stark" className="faction-logo" />
-      <img src={TargaryenLogo} alt="Logo Targaryen" className="faction-logo" />
+
+      {factionsList.map((faction) => (
+        <button
+          key={faction.name}
+          type="button"
+          onClick={() => handleFactionFilter(faction.name)}
+        >
+          <img src={`./src/assets/images/logo_faction/${faction.picture}.png`} alt={`Logo ${faction.name}`} className="faction-logo" />
+        </button>
+      ))}
+
     </div>
 
   );

@@ -3,7 +3,7 @@ import FactionsList from '../FactionsList';
 import './styles.scss';
 
 function Rankings() {
-  const rankingsList = useAppSelector((state) => state.rankings.list);
+  const rankingsList = useAppSelector((state) => state.rankings.rankingsToDisplay);
 
   return (
 
